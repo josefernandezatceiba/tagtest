@@ -1,0 +1,34 @@
+name: Create and Publish Docker Image
+
+on:
+  workflow_call:
+    inputs:
+      zip_name:
+        required: true
+        type: string
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps: 
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      
+      - name: use nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Cache yarn packages
+        uses: actions/cache@v3
+        with:
+          path: |
+            **/node_modules
+            .yarn/cache
+            .yarn/install-state.gz
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-
+      
