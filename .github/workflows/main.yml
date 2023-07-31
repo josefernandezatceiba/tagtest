@@ -16,7 +16,7 @@ jobs:
       - name: zip-app
         working-directory: ./
         run: |
-          pwd && ls
+          pwd && ls ./ -lia
     
   
     
