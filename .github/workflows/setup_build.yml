@@ -3,7 +3,7 @@ name: Create and Publish Docker Image
 on:
   workflow_call:
     inputs:
-      zip_name:
+      app_name:
         required: true
         type: string
 jobs:
@@ -31,4 +31,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
             ${{ runner.os }}-
+            
+      - name: Build 
+        working-directory: ./
+        run: |
+          cd poc
+          yarn install
+          yarn build ${{inputs.app_name}}
       
