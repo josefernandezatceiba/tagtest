@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    uses: tagtest/.github/workflows/setup_build.yml@main
+    uses: .github/workflows/setup_build.yml@main
     with:
       app_name: oneapp
     
