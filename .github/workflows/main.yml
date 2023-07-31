@@ -8,8 +8,10 @@ jobs:
     uses: ./.github/workflows/setup_build.yml
     with:
       app_name: oneapp
+    
       
   zip_app:
+    needs: build
     runs-on: ubuntu-latest
     
     steps:
