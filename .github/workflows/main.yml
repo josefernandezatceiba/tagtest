@@ -5,7 +5,7 @@ on:
 
 jobs:
   base:
-    uses: ./.github/workflows/setup_build.yml
+    uses: josefernandezatceiba/tagest/.github/workflows/setup_build.yml@main
     
   additional-steps:
     needs: base
