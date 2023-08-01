@@ -4,22 +4,21 @@ on:
     branches: main
 
 jobs:
-  build:
-    uses: ./.github/workflows/setup_build.yml
-    with:
-      app_name: oneapp
-    
-      
-  zip_app:
-    needs: build
+  build-and-zip:
     runs-on: ubuntu-latest
-    
-    steps:
-      - name: zip-app
+    steps: 
+      - name: calling reusable workflow
+        uses: ./.github/workflows/setup_build.yml
+        with:
+          app_name: oneapp
+      - name: zip stuff
         working-directory: ./
         run: |
-          pwd && ls -li tagtest/
+          pwd && ls -li
           zip -r -9 oneapp-${{ github.run_id }}.zip ./*   
+    
+      
+          
     
   
     
