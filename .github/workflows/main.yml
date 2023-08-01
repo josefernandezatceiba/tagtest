@@ -4,22 +4,18 @@ on:
     branches: main
 
 jobs:
-  build-and-zip:
+  base:
+    uses: ./.github/workflows/setup_build.yml
+    
+  additional-steps:
+    needs: base
     runs-on: ubuntu-latest
     steps: 
-      - name: Checkout Branch
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 1
-      - name: calling reusable workflow
-        uses: josefernandezatceiba/tagtest/.github/workflows/setup_build.yml@main
-        with:
-          app_name: oneapp
-      - name: zip stuff
+      - name: zipping stuff
         working-directory: ./
         run: |
           pwd && ls -li
-          zip -r -9 oneapp-${{ github.run_id }}.zip ./*   
+      
     
       
           
