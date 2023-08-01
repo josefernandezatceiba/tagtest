@@ -18,7 +18,7 @@ jobs:
       - name: zip-app
         working-directory: ./
         run: |
-          zip -r -9 oneapp-${{ github.run_id }}.zip * .[^.]* -x ".vscode" -x "test/*" -x "node_modules/*" -x ".git*"  
+          zip -r -9 oneapp-${{ github.run_id }}.zip ./*   
     
   
     
