@@ -7,6 +7,10 @@ jobs:
   build-and-zip:
     runs-on: ubuntu-latest
     steps: 
+      - name: Checkout Branch
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
       - name: calling reusable workflow
         uses: ./.github/workflows/setup_build.yml
         with:
