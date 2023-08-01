@@ -18,7 +18,7 @@ jobs:
       - name: zip-app
         working-directory: ./
         run: |
-          pwd && ls -li
+          pwd && ls -li tagtest/
           zip -r -9 oneapp-${{ github.run_id }}.zip ./*   
     
   
