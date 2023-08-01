@@ -18,6 +18,7 @@ jobs:
       - name: zip-app
         working-directory: ./
         run: |
+          pwd && ls -li
           zip -r -9 oneapp-${{ github.run_id }}.zip ./*   
     
   
