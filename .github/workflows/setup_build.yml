@@ -39,6 +39,8 @@ jobs:
           yarn install
           yarn build ${{inputs.app_name}}
           zip ${{ inputs.app_name }}.zip ./dist/*
+          pwd && ls -li
+      
           
       - name: upload files to dist
         uses: actions/upload-artifact@v2
