@@ -6,6 +6,8 @@ on:
 jobs:
   base:
     uses: josefernandezatceiba/tagtest/.github/workflows/setup_build.yml@main
+    with:
+      app_name: oneapp
     
   additional-steps:
     needs: base
