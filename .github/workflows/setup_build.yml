@@ -38,4 +38,10 @@ jobs:
           cd poc
           yarn install
           yarn build ${{inputs.app_name}}
+          
+      - name: upload files to dist
+        uses: actions/upload-artifact@v2
+        with:
+            name: dist
+            path: dist/
       
