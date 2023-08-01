@@ -12,7 +12,7 @@ jobs:
         with:
           fetch-depth: 1
       - name: calling reusable workflow
-        uses: ./.github/workflows/setup_build.yml
+        uses: josefernandezatceiba/tagtest/.github/workflows/setup_build.yml@main
         with:
           app_name: oneapp
       - name: zip stuff
