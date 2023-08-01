@@ -46,5 +46,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
             name: dist
-            path: ./${{ inputs.app_name }}.zip
+            path: ${{ inputs.app_name }}.zip
       
