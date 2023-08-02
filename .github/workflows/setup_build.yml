@@ -44,8 +44,7 @@ jobs:
           
       - name: upload files to dist        
         uses: actions/upload-artifact@v2
-        with:
-            working-directory: ./
+        with:           
             name: dist
-            path: ${{ inputs.app_name }}.zip
+            path: /home/runner/work/tagtest/tagtest/poc/${{ inputs.app_name }}.zip
       
