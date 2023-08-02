@@ -42,9 +42,10 @@ jobs:
           pwd && ls -li
       
           
-      - name: upload files to dist
+      - name: upload files to dist        
         uses: actions/upload-artifact@v2
         with:
+            working-directory: ./
             name: dist
             path: ${{ inputs.app_name }}.zip
       
